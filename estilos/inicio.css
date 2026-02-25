@@ -1,0 +1,593 @@
+/* Reset básico para limpiar márgenes predeterminados */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #e5e5e5;
+    color: #1a1a1a;
+}
+
+h1, h2, h3, .logo, .btn, nav a {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* --- ESTILOS DEL ENCABEZADO --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: #111;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* --- ESTILOS DE LA SECCIÓN PRINCIPAL --- */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem 5%;
+    min-height: 75vh;
+}
+
+.hero-content {
+    flex: 1; /* Ocupa la mitad del espacio */
+    padding-right: 5rem;
+}
+
+.hero-content h1 {
+    font-size: 4.5rem;
+    font-weight: 700;
+    line-height: 1.05;
+    margin-bottom: 2rem;
+    letter-spacing: -2px;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 3rem;
+    max-width: 90%;
+}
+
+/* Estilo del botón semi-visible en tu pantalla */
+.btn {
+    display: inline-block;
+    background-color: #000;
+    color: #fff;
+    padding: 1.2rem 3rem;
+    border-radius: 50px; /* Hace que tenga forma de píldora */
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transición fluida */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border: none;
+    cursor: pointer;
+}
+
+/* Efecto Hover: Elevación y "Brillo" de sombra */
+.btn:hover {
+    transform: translateY(-5px); /* Eleva el botón */
+    background-color: #1a1a1a; /* Un tono un poquito más claro para el "brillo" */
+    box-shadow: 0 12px 24px rgba(0,0,0,0.2); /* Sombra más profunda */
+}
+
+/* Efecto cuando se hace clic (Active) */
+.btn:active {
+    transform: translateY(-2px); /* Baja un poquito al presionar */
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+.hero-image {
+    flex: 1; /* Ocupa la otra mitad del espacio */
+    display: flex;
+    justify-content: flex-end;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 450px; /* Tamaño reducido de 600px a 450px */
+    height: auto;
+    object-fit: cover;
+    border-radius: 20px; /* Bordes redondeados para un look más moderno */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1); /* Sombra elegante */
+    
+    /* Animaciones */
+    animation: fadeInSlide 1.2s ease-out forwards, floating 4s ease-in-out infinite;
+}
+
+/* Animación de entrada: Aparecer y subir un poco */
+@keyframes fadeInSlide {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animación constante: Flotar suavemente */
+@keyframes floating {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* --- RESPONSIVE (Para celulares) --- */
+@media (max-width: 900px) {
+    .hero {
+        flex-direction: column;
+    }
+    .hero-content {
+        padding-right: 0;
+        margin-bottom: 3rem;
+    }
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+}
+/* --- ESTILOS DE LA SECCIÓN "MÁS SOBRE NUESTRA MARCA" --- */
+.about-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5rem 5%;
+    gap: 5rem; /* Añade un espacio uniforme entre la imagen y el texto */
+}
+
+.about-image {
+    flex: 1; /* Ocupa la mitad izquierda */
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    border-radius: 20px; /* Consistencia con la imagen Hero */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1); /* Consistencia con la imagen Hero */
+    
+    /* Animaciones */
+    /* Usamos un pequeño retraso (delay) de 0.5s para que no aparezcan al mismo tiempo */
+    animation: fadeInSlide 1.2s ease-out 0.5s forwards, floating 4.5s ease-in-out infinite;
+}
+
+.about-text {
+    flex: 1; /* Ocupa la mitad derecha */
+}
+
+.about-text h2 {
+    font-size: 4rem;
+    font-weight: 500;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    letter-spacing: -1px;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+    max-width: 95%;
+}
+
+/* Modificador para el nuevo botón en mayúsculas */
+.btn.uppercase {
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    padding: 1.2rem 3.5rem;
+}
+
+/* --- RESPONSIVE (Actualización para que se vea bien en celulares) --- */
+@media (max-width: 900px) {
+    .about-section {
+        flex-direction: column; /* Apila la imagen arriba del texto en móviles */
+        gap: 3rem;
+    }
+    
+    .about-text h2 {
+        font-size: 3rem;
+    }
+}
+
+/* --- ESTILOS DE LA SECCIÓN "REDES SOCIALES" --- */
+.social-section {
+    padding: 5rem 5%;
+    text-align: center; /* Esto centra el texto a nivel general */
+}
+
+.social-section h2 {
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: 3rem;
+    color: #111;
+    text-align: center; /* Asegura que el título quede al medio */
+    width: 100%;
+}
+
+/* Contenedor de las 4 imágenes */
+.social-gallery {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 3.5rem;
+    width: 100%;
+}
+
+/* El enlace que funciona como marco cuadrado */
+.social-gallery a {
+    display: block; 
+    width: calc(25% - 1.125rem); 
+    aspect-ratio: 1 / 1; 
+    border-radius: 10px; 
+    overflow: hidden; 
+    position: relative; /* Necesario para posicionar el texto encima */
+}
+
+/* La imagen dentro del marco */
+.social-gallery a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    transition: transform 0.5s ease, filter 0.5s ease; 
+}
+
+/* El texto oculto (Overlay) */
+.social-name {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 23, 42, 0.7); /* Azul marino del footer con transparencia */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0; /* Oculto por defecto */
+    transition: opacity 0.4s ease;
+    font-size: 0.9rem;
+}
+
+/* Efectos al pasar el mouse (HOVER) */
+.social-gallery a:hover img {
+    transform: scale(1.1);
+    filter: blur(2px); /* Un ligero desenfoque para que el texto resalte más */
+}
+
+.social-gallery a:hover .social-name {
+    opacity: 1; /* Muestra el texto */
+}
+
+/* Contenedor que fuerza al botón a estar en el centro */
+.social-btn-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Ajuste del texto del botón */
+.btn.uppercase.text-center {
+    text-align: center;
+    line-height: 1.2;
+    padding: 1rem 3.5rem;
+}
+
+/* --- RESPONSIVE PARA LA GALERÍA --- */
+@media (max-width: 900px) {
+    .social-gallery {
+        flex-wrap: wrap;
+    }
+    .social-gallery a {
+        width: calc(50% - 0.75rem);
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .social-gallery a {
+        width: 100%;
+    }
+}
+
+/* --- ESTILOS DE LA SECCIÓN "CONTÁCTANOS" --- */
+.contact-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 5rem 5%;
+    gap: 5rem;
+}
+
+.contact-text {
+    flex: 1; /* Mitad izquierda para el texto */
+}
+
+.contact-text h2 {
+    font-size: 4rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    letter-spacing: -1px;
+}
+
+.contact-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 90%;
+}
+
+.contact-form-container {
+    flex: 1; /* Mitad derecha para el formulario */
+}
+
+/* Quitar bordes del fieldset y darle estilo al título "Nombre" */
+.contact-form fieldset {
+    border: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+}
+
+.contact-form legend {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #111;
+}
+
+/* Fila para poner Nombre y Apellido uno al lado del otro */
+.form-group-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+
+.form-field.half {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+.form-field label {
+    font-size: 0.85rem;
+    color: #555;
+    margin-bottom: 0.4rem;
+}
+
+/* Estilo de las cajas de texto (redondeadas) */
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 0.8rem 1.2rem;
+    border: 1px solid #777;
+    border-radius: 30px; /* Hace que los inputs sean redondos */
+    font-family: inherit;
+    font-size: 1rem;
+    background-color: transparent;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+/* El textarea necesita menos redondez para verse bien */
+.contact-form textarea {
+    border-radius: 15px; 
+    resize: vertical; /* Permite agrandar la caja solo hacia abajo */
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #111; /* Se oscurece al hacer clic */
+    border-width: 2px;
+    padding: calc(0.8rem - 1px) calc(1.2rem - 1px); /* Ajuste para que no salte al cambiar el borde */
+}
+
+/* Botón de enviar: quitamos los estilos por defecto del navegador */
+.btn-submit {
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    margin-top: 1rem;
+}
+
+/* --- RESPONSIVE PARA EL FORMULARIO --- */
+@media (max-width: 900px) {
+    .contact-section {
+        flex-direction: column; /* Apila el texto y el formulario en móviles */
+        gap: 3rem;
+    }
+    
+    .contact-text h2 {
+        font-size: 3rem;
+    }
+    
+    .form-group-row {
+        flex-direction: column; /* Apila nombre y apellido en móviles */
+        gap: 1.5rem;
+    }
+}
+/* --- ESTILOS DEL PIE DE PÁGINA (FOOTER) --- */
+.site-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 5rem 5%;
+    background-color: #0f172a; /* Azul marino profundo moderno */
+    color: #ffffff;
+    margin-top: 4rem;
+}
+
+/* Columna Izquierda */
+.footer-left h2 {
+    font-size: 2.2rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+}
+
+.footer-left p {
+    font-size: 0.95rem;
+    opacity: 0.8;
+}
+
+.footer-left a {
+    color: #38bdf8; /* Azul claro para enlaces */
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.footer-left a:hover {
+    text-decoration: underline;
+}
+
+/* Columnas Derechas (Ubicación y Contacto) */
+.footer-right {
+    display: flex;
+    gap: 4rem;
+}
+
+.footer-col h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #38bdf8;
+}
+
+.footer-col p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* --- BARRA SOCIAL FLOTANTE --- */
+.social-side-bar {
+    position: fixed;
+    right: 45px;
+    bottom: 115px; /* Empieza arriba del botón de WhatsApp */
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 9999;
+}
+
+.side-social-item {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.side-social-item:hover {
+    transform: translateX(-5px) scale(1.1);
+}
+
+/* Colores de marca */
+.facebook { background-color: #1877F2; }
+.instagram { background-image: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+.x-twitter { background-color: #000000; }
+
+@media (max-width: 600px) {
+    .social-side-bar {
+        right: 20px;
+        bottom: 85px;
+    }
+    .side-social-item {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+/* --- BOTÓN FLOTANTE DE WHATSAPP --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+.whatsapp-float:hover {
+    background-color: #128c7e;
+    transform: scale(1.1);
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+/* Ocultar en pantallas muy pequeñas si estorba, o ajustarlo */
+@media (max-width: 600px) {
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+    }
+}
